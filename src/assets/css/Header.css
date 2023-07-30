@@ -1,0 +1,10 @@
+.header-box .MuiToolbar-root {
+    display: grid;
+    justify-content: space-between;
+    grid-auto-flow: column;
+    background: #000;
+}
+
+.header-box .logo-div img{
+    width: 150px;
+}
