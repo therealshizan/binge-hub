@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Row from "../components/Row";
+import Rows from "../components/Rows/Rows";
 import requests from "../services/requests";
 import instance from "../services/axios";
 import Carousel from "../components/Slider/Carousel";
@@ -24,23 +24,17 @@ const Home = () => {
     <>
     <Header/>
     <Carousel/>
-      <Row title={"Now Playing"} fetchUrl={requests.fetchNowPlaying} />
-      <Row title={"Top Rated"} fetchUrl={requests.fetchTopRated} />
-      <Row title={"Upcoming"} fetchUrl={requests.fetchUpcoming} />
+      <Rows title={"Now Playing"} fetchUrl={requests.fetchNowPlaying} />
+      <Rows title={"Top Rated"} fetchUrl={requests.fetchTopRated} />
+      <Rows title={"Upcoming"} fetchUrl={requests.fetchUpcoming} />
       {genreList.map((genre) => (
-        <Row
+        <Rows
           isSmallRow
           key={genre.id}
           title={genre.name}
           fetchUrl={requests.fetchMoviesByGenreId(genre.id)}
         />
       ))}
-      {/* <Row title={"Action"} fetchUrl={requests.fetchMoviesByGenreId(28)} />
-      <Row title={"Adventure"} fetchUrl={requests.fetchMoviesByGenreId(12)} />
-      <Row title={"Animation"} fetchUrl={requests.fetchMoviesByGenreId(16)} />
-      <Row title={"Comedy"} fetchUrl={requests.fetchMoviesByGenreId(35)} />
-      <Row title={"Crime"} fetchUrl={requests.fetchMoviesByGenreId(80)} />
-      <Row title={"Documentary"} fetchUrl={requests.fetchMoviesByGenreId(99)} /> */}
     </>
   );
 };
